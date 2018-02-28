@@ -39,6 +39,12 @@ import static android.Manifest.permission.READ_CONTACTS;
 public class MainActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**
+     * DATABASE
+     */
+    public static DatabaseHelper db;
+    public static String email_address;
+
+    /**
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
@@ -65,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        db = new DatabaseHelper(this);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -156,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
 
         // Store values at the time of the login attempt.
         String email = mEmailView.getText().toString();
+        email_address = email;
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
