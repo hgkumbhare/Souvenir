@@ -1,6 +1,7 @@
 package com.hackathon.souvenir;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -42,6 +43,7 @@ public class Features extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
 
     @Override
     public void onBackPressed() {
@@ -99,6 +101,15 @@ public class Features extends AppCompatActivity
         } else if (id == R.id.share) {
             Intent startIntend = new Intent(getApplicationContext(), Share.class);
             startActivity(startIntend);
+        } else if(id == R.id.google) {
+            // Attempt to search in google
+            String google = "http://www.google.com";
+            Uri webAddress = Uri.parse(google);
+
+            Intent gotoGoogle = new Intent(Intent.ACTION_VIEW, webAddress);
+            if(gotoGoogle.resolveActivity(getPackageManager())!=null) {
+                startActivity(gotoGoogle);
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
