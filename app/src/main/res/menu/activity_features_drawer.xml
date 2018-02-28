@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/add"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Add Item" />
+        <item
+            android:id="@+id/delete"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Delete Item" />
+        <item
+            android:id="@+id/update"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Update Item" />
+        <item
+            android:id="@+id/generateList"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Generate List" />
+        <item
+            android:id="@+id/calendar"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Calendar" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+        </menu>
+    </item>
+
+</menu>

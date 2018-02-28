@@ -24,10 +24,19 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
+        <activity android:name=".Calendar" />
+        <activity android:name=".AddItem" />
+        <activity android:name=".DeleteItem" />
         <activity
-            android:name=".Feature"
-            android:label="@string/title_activity_feature"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".UpdateItem"
+            android:label="@string/title_activity_update_item"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Features"
+            android:label="@string/title_activity_features"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".GenerateList" />
+        <activity android:name=".Share"></activity>
     </application>
 
 </manifest>

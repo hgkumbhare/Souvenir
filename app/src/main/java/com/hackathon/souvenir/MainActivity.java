@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
             public void onClick(View view) {
                 // TODO : remove comment on below line
                 //attemptLogin();
-                Intent startIntend = new Intent(getApplicationContext(), Feature.class);
+                Intent startIntend = new Intent(getApplicationContext(), Features.class);
                 startActivity(startIntend);
             }
         });
