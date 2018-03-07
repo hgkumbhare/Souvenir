@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by hgkumbhare on 28/2/18.
@@ -11,18 +12,18 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
 
-    public static final String DATABASE_NAME = "souvenir.db";
+    /*
+    For any change in database, change database name or increase the count
+     */
+    public static final String DATABASE_NAME = "souvenir1.db";
 
     /*
-    items
     Primary key : item_name (String)
     email_address (String)
-    one_unit (Bigdecimal)
-    cost_of_one_unit (Bigdecimal)
     measurement_unit (String)(options-ml/gms)
-    usage in ml/gm (Bigdecimal)
-    usage_time_period (Bigdecimal)(in days)
-    available in ml/gm(Bigdecimal)
+    usage (Bigdecimal)(in one days)
+    available_quantity in ml/gm(Bigdecimal)
+    use_default_consumption
     reminder_before_days (Integer)
 
      */
@@ -31,12 +32,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public class Item{
         public static final String item_name = "item_name";
         public static final String email_address = "email_address";
-        public static final String one_unit = "one_unit";
-        public static final String cost_of_one_unit = "cost_of_one_unit";
         public static final String measurement_unit = "measurement_unit";
         public static final String usage = "usage";
-        public static final String usage_time_period = "usage_time_period";
-        public static final String available = "available";
+        public static final String available_quantity = "available_quantity";
+        public static final String use_default_consumption = "use_default_consumption";
         public static final String reminder_before_days = "reminder_before_days";
     }
 
@@ -50,12 +49,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 +" ( "
                 + Item.item_name+" STRING PRIMARY KEY, "
                 + Item.email_address+ " STRING, "
-                + Item.one_unit+ " REAL, "
-                + Item.cost_of_one_unit+ " REAL, "
                 + Item.measurement_unit+ " STRING, "
-                + Item.usage+ " REAL,"
-                + Item.usage_time_period+ " INTEGER, "
-                + Item.available+ " REAL, "
+                + Item.usage+ " REAL, "
+                + Item.available_quantity+ " REAL, "
+                + Item.use_default_consumption + " INTEGER, "
                 + Item.reminder_before_days + " INTEGER "
                 +")";
         db.execSQL(query);
@@ -70,11 +67,24 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public boolean insert(ContentValues contentValues) {
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.insert(TABLENAME, null, contentValues);
+        Log.d("INFO","Database Opened"+result);
         if(result == -1) {
             return false;
         }
         else {
             return true;
         }
+    }
+
+    public void delete(String primaryKey) {
+        //Open the database
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //Execute sql query to remove from database
+        //NOTE: When removing by String in SQL, value must be enclosed with ''
+        db.execSQL("DELETE FROM " + TABLENAME + " WHERE " + Item.item_name + "= '" + primaryKey + "'");
+
+        //Close the database
+        db.close();
     }
 }
