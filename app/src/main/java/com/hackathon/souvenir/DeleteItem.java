@@ -1,6 +1,7 @@
 package com.hackathon.souvenir;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -50,11 +51,12 @@ public class DeleteItem extends Activity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(DeleteItem.this,
-                        "Deleted Item : " +
-                                "\nSpinner 1 : "+ String.valueOf(spinner1.getSelectedItem()),
-                        Toast.LENGTH_SHORT).show();
                 MainActivity.db.delete(String.valueOf(spinner1.getSelectedItem()));
+                Toast.makeText(DeleteItem.this,
+                        "Deleted Item_name : "+ String.valueOf(spinner1.getSelectedItem()),
+                        Toast.LENGTH_SHORT).show();
+                Intent startIntend = new Intent(getApplicationContext(), Features.class);
+                startActivity(startIntend);
             }
 
         });
@@ -72,7 +74,7 @@ public class DeleteItem extends Activity {
                 if (cursor.moveToFirst()) {
                     do {
                         String item_name = cursor.getString(cursor.getColumnIndex(DatabaseHelper.Item.item_name));
-                        results.add("Item Name: " + item_name);
+                        results.add(item_name);
                     }while (cursor.moveToNext());
                 }
             }
@@ -81,13 +83,10 @@ public class DeleteItem extends Activity {
                 android.R.layout.simple_spinner_item, results);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(dataAdapter);
+            sqLiteDatabase.close();
 
         } catch (SQLiteException se ) {
             Log.e(getClass().getSimpleName(), "Could not create or Open the database");
-        } finally {
-            if (sqLiteDatabase != null)
-                sqLiteDatabase.execSQL("DELETE FROM " + tableName);
-            sqLiteDatabase.close();
         }
 
     }

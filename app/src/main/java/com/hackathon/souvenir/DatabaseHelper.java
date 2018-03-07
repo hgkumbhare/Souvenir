@@ -68,6 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.insert(TABLENAME, null, contentValues);
         Log.d("INFO","Database Opened"+result);
+        db.close();
         if(result == -1) {
             return false;
         }
@@ -82,7 +83,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         //Execute sql query to remove from database
         //NOTE: When removing by String in SQL, value must be enclosed with ''
+        Log.d("DELETING",primaryKey);
         db.execSQL("DELETE FROM " + TABLENAME + " WHERE " + Item.item_name + "= '" + primaryKey + "'");
+        Log.d("DELETED",primaryKey);
 
         //Close the database
         db.close();
