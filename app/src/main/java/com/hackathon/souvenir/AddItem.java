@@ -32,7 +32,13 @@ public class AddItem extends AppCompatActivity {
 
                 ContentValues contentValues = new ContentValues();
 
-                Log.d("SEE HERE",edit_item_name.getText().toString());
+                Log.d("SEE HERE item_name :",edit_item_name.getText().toString());
+                Log.d("SEE HERE measurement_unit :",edit_measurement_unit.getText().toString());
+                Log.d("SEE HERE usage :",edit_usage.getText().toString());
+                Log.d("SEE HERE available_quantity :",edit_available_quantity.getText().toString());
+                Log.d("SEE HERE use_default_consumption :",edit_use_default_consumption.getText().toString());
+                Log.d("SEE HERE reminder_before_days :",edit_reminder_before_days.getText().toString());
+
                 contentValues.put(DatabaseHelper.Item.item_name, edit_item_name.getText().toString());
                 contentValues.put(DatabaseHelper.Item.email_address, MainActivity.email_address);
                 contentValues.put(DatabaseHelper.Item.measurement_unit, edit_measurement_unit.getText().toString());
