@@ -44,8 +44,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
     /**
      * DATABASE
      */
+    // TODO table entries are getting deleted
     public static DatabaseHelper db;
-    public static String email_address;
+    public static String email_address ;
 
     /**
      * Id to identity READ_CONTACTS permission request.
