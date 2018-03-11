@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.hackathon.souvenir.utilities.NotificationUtils;
+
 public class AddItem extends AppCompatActivity {
 
     @Override
@@ -49,4 +51,8 @@ public class AddItem extends AppCompatActivity {
             }
         });
     }
+
+    /*public void testNotification(View view) {
+        NotificationUtils.remindUserToRefill(this);
+    }*/
 }

@@ -22,4 +22,8 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="notification_title">Refill time</string>
+    <string name="notification_text">Click to view the list of items you need to bring</string>
+    <string name="action_notify">Notify me</string>
+    <string name="main_notification_channel_name">Refill Notification</string>
 </resources>

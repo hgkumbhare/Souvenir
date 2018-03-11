@@ -28,6 +28,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.hackathon.souvenir.sync.ReminderUtilities;
+import com.hackathon.souvenir.utilities.NotificationUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,6 +105,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<C
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        //scheduling service
+        ReminderUtilities.scheduleChargingReminder(this);
     }
 
     private void populateAutoComplete() {

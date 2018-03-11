@@ -37,6 +37,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GenerateList" />
         <activity android:name=".Share"></activity>
+        <service android:name=".sync.RefillReminderFirebaseJobService" android:exported="false" >
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>
