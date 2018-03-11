@@ -12,6 +12,8 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
+
+import com.hackathon.souvenir.GenerateList;
 import com.hackathon.souvenir.R;
 import com.hackathon.souvenir.AddItem;
 import com.hackathon.souvenir.MainActivity;
@@ -28,7 +30,7 @@ public class NotificationUtils {
     //This will be triggered when notification is pressed. This should show mainActivity
     private static PendingIntent contentIntent(Context context) {
         //create an activity that will open MainActivity
-        Intent startActivityIntent = new Intent(context, MainActivity.class);
+        Intent startActivityIntent = new Intent(context, GenerateList.class);
         return PendingIntent.getActivity(context, REQUEST_CODE_DUMMY_INT ,startActivityIntent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
     private static Bitmap largeIcon(Context context) {

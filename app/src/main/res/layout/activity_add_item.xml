@@ -89,25 +89,6 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/use_default_consumption"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="use_default_consumption"
-                    android:imeActionId="6"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
                     android:id="@+id/reminder_before_days"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

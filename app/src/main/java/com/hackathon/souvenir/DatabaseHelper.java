@@ -77,6 +77,32 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         }
     }
 
+    public boolean update(ContentValues contentValues, String item_name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.update(TABLENAME, contentValues, "item_name = ?", new String[] { item_name });
+        Log.d("INFO", "Database Opened"+result);
+        db.close();
+        if(result == -1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    public boolean update2(ContentValues contentValues, String item_name, SQLiteDatabase db) {
+        //SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.update(TABLENAME, contentValues, "item_name = ?", new String[] { item_name });
+        Log.d("INFO", "Database Opened"+result);
+        db.close();
+        if(result == -1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
     public void delete(String primaryKey) {
         //Open the database
         SQLiteDatabase db = this.getWritableDatabase();
@@ -90,4 +116,5 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         //Close the database
         db.close();
     }
+
 }

@@ -22,4 +22,7 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="main_notification_channel_name">"Notification Channel"</string>
+    <string name="notification_title">Refill time !!</string>
+    <string name="notification_text">Click to view items you need to refill</string>
 </resources>
